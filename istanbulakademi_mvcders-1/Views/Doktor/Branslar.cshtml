@@ -1,0 +1,27 @@
+﻿@using istanbulakademi_mvcders_1.Models
+@model List<brans_tbl>
+
+@{
+    ViewBag.Title = "Branslar";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+<h2>Branslar</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Branş ID</th>
+        <th>Branş Ad</th>
+    </tr>
+
+ @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.bransid</td>
+                    <td>@item.bransad</td>
+                </tr>
+            }
+
+</table>
+

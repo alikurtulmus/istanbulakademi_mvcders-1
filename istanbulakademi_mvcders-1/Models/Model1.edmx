@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HastaneDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HastaneDB.dbo.brans_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="brans_tbl">
+          <Key>
+            <PropertyRef Name="bransid" />
+          </Key>
+          <Property Name="bransid" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bransad" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HastaneDB.dbo.doktor_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="doktor_tbl">
+          <Key>
+            <PropertyRef Name="doktorid" />
+          </Key>
+          <Property Name="doktorid" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doktorad" Type="varchar" MaxLength="10" />
+          <Property Name="doktorsoyad" Type="varchar" MaxLength="10" />
+          <Property Name="doktorbrans" Type="varchar" MaxLength="30" />
+          <Property Name="doktortc" Type="char" MaxLength="11" />
+          <Property Name="doktorsifre" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="HastaneDBModelStoreContainer">
+          <EntitySet Name="brans_tbl" EntityType="Self.brans_tbl" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [brans_tbl].[bransid] AS [bransid], 
+    [brans_tbl].[bransad] AS [bransad]
+    FROM [dbo].[brans_tbl] AS [brans_tbl]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="doktor_tbl" EntityType="Self.doktor_tbl" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [doktor_tbl].[doktorid] AS [doktorid], 
+    [doktor_tbl].[doktorad] AS [doktorad], 
+    [doktor_tbl].[doktorsoyad] AS [doktorsoyad], 
+    [doktor_tbl].[doktorbrans] AS [doktorbrans], 
+    [doktor_tbl].[doktortc] AS [doktortc], 
+    [doktor_tbl].[doktorsifre] AS [doktorsifre]
+    FROM [dbo].[doktor_tbl] AS [doktor_tbl]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HastaneDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="brans_tbl">
+          <Key>
+            <PropertyRef Name="bransid" />
+          </Key>
+          <Property Name="bransid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bransad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="doktor_tbl">
+          <Key>
+            <PropertyRef Name="doktorid" />
+          </Key>
+          <Property Name="doktorid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doktorad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="doktorsoyad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="doktorbrans" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="doktortc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="doktorsifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="HastaneDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="brans_tbl" EntityType="Self.brans_tbl" />
+          <EntitySet Name="doktor_tbl" EntityType="Self.doktor_tbl" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HastaneDBModelStoreContainer" CdmEntityContainer="HastaneDBEntities">
+          <EntitySetMapping Name="brans_tbl">
+            <EntityTypeMapping TypeName="HastaneDBModel.brans_tbl">
+              <MappingFragment StoreEntitySet="brans_tbl">
+                <ScalarProperty Name="bransid" ColumnName="bransid" />
+                <ScalarProperty Name="bransad" ColumnName="bransad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doktor_tbl">
+            <EntityTypeMapping TypeName="HastaneDBModel.doktor_tbl">
+              <MappingFragment StoreEntitySet="doktor_tbl">
+                <ScalarProperty Name="doktorid" ColumnName="doktorid" />
+                <ScalarProperty Name="doktorad" ColumnName="doktorad" />
+                <ScalarProperty Name="doktorsoyad" ColumnName="doktorsoyad" />
+                <ScalarProperty Name="doktorbrans" ColumnName="doktorbrans" />
+                <ScalarProperty Name="doktortc" ColumnName="doktortc" />
+                <ScalarProperty Name="doktorsifre" ColumnName="doktorsifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
